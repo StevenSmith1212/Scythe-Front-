@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@keyframes liquid-wiggle {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+}
+
+.wiggle:hover {
+  animation: liquid-wiggle 0.2s ease-in-out infinite;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+.main-gradient {
+  --tw-gradient-from: #072a34; /* Start color #072a34 */
+  --tw-gradient-middle: rgba(
+    69,
+    10,
+    10,
+    0.1
+  ); /* Middle color for control point */
+  --tw-gradient-to: rgba(69, 10, 10, 0); /* End color - fully transparent */
+  /* Set gradient stops with explicit control over the middle stop position */
+  background: linear-gradient(
+    to bottom,
+    var(--tw-gradient-from),
+    var(--tw-gradient-middle) 75%,
+    /* Adjust this value to control where the color starts to fade */
+      var(--tw-gradient-to)
+  );
+}
